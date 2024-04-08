@@ -1,0 +1,47 @@
+const path=require('path')
+const parentDirectory =(__dirname).split('\controller')[0]
+
+console.log(parentDirectory)
+//splits into 2 before controller part and after controller part [0] and [1]
+
+const fs=require('fs')
+
+const renderHtml=(request,response)=>{
+response.status(200).render('index')
+}
+
+const displayImage=(request,response)=>{
+    console.log(request.file)
+console.log("Uploaded Image:", request.file);
+response.send("Image Uploaded");
+}
+
+const displayUserData =(request,response)=>{
+    const image=request.params.image
+    //const {fileName}=request.params
+    const filePath=path.join(parentDirectory,'images',image)
+    fs.stat(filePath, (error, stats) => {
+        if (stats) {
+            response.status(201).sendFile(filePath); 
+    
+            // console.log(stats.isFile())
+            // console.log(stats.isDirectory())
+            // console.log(stats.size)
+        }
+        else{
+            response.status(404).send("File doesn't exist!");
+        }
+    })
+    }
+
+module.exports={renderHtml,displayImage,displayUserData }
+
+//The fs.stat() method is used to return information about the given file or directory.
+//201 -> created
+
+// const displayImage=(request,response)=>{
+//     console.log(request.file)
+// console.log("Uploaded Image:", request.file);
+// response.send(`<h1>Image uploaded</h1>
+//     <img src="/images/${request.file.filename}" alt="Uploaded Image">`);
+// }
