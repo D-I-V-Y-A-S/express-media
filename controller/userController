@@ -2,7 +2,7 @@ const path=require('path')
 const parentDirectory =(__dirname).split('\controller')[0]
 
 console.log(parentDirectory)
-//splits into 2 before controller part and after controller part [0] and [1]
+
 
 const fs=require('fs')
 
@@ -36,12 +36,3 @@ const displayUserData =(request,response)=>{
 
 module.exports={renderHtml,displayImage,displayUserData }
 
-//The fs.stat() method is used to return information about the given file or directory.
-//201 -> created
-
-// const displayImage=(request,response)=>{
-//     console.log(request.file)
-// console.log("Uploaded Image:", request.file);
-// response.send(`<h1>Image uploaded</h1>
-//     <img src="/images/${request.file.filename}" alt="Uploaded Image">`);
-// }
