@@ -11,7 +11,7 @@ response.status(200).render('index')
 }
 
 const displayImage=(request,response)=>{
-    console.log(request.file)
+    console.log("byee")
 console.log("Uploaded Image:", request.file);
 response.send("Image Uploaded");
 }
@@ -24,8 +24,8 @@ const displayUserData =(request,response)=>{
         if (stats) {
             response.status(201).sendFile(filePath); 
     
-            // console.log(stats.isFile())
-            // console.log(stats.isDirectory())
+            // console.log(stats.isFile())ans will be true or false
+            // console.log(stats.isDirectory())ans will be true or false
             // console.log(stats.size)
         }
         else{

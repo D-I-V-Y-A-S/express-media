@@ -14,4 +14,4 @@ app.get('/',(request,response)=>{
     response.status(200).send("Hello!!")
 })
 
-app.listen(PORT,console.log(`server started running at http://localhost${PORT}`))
+app.listen(PORT,console.log(`server started running at http://localhost:${PORT}`))

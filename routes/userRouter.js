@@ -8,9 +8,29 @@ router.post('/image',upload.single('image'),displayImage)
 router.get('/display/:image',displayUserData )
 module.exports=router
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //we create a folder for images for
-//security
-//read write access
+//security & restrict read write access 
 //__dirname
 
    
